@@ -9,6 +9,7 @@ mkdir -p $HOME/.config/nvim
 ln -s "$SCRIPT_DIRECTORY/init.lua" "$HOME/.config/nvim/init.lua"
 
 if [ "$OS_NAME" = "osx" ]; then
+	rm -rf $HOME/.zprofile
 	ln -s "$SCRIPT_DIRECTORY/.zprofile" "$HOME/.zprofile"
 fi
 
