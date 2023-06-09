@@ -20,7 +20,7 @@ if [[ "$OS_NAME" = "osx" ]]; then
 		"wget"
 	)
 
-	brew install ${FORMULAE[@]}
+	brew install "${FORMULAE[@]}"
 
 	CASKS=(
 		"font-fira-code"
@@ -30,18 +30,18 @@ if [[ "$OS_NAME" = "osx" ]]; then
 		"rectangle"
 	)
 
-	brew install --cask ${CASKS[@]}
+	brew install --cask "${CASKS[@]}"
 fi
 
 if [[ "$OS_NAME" = "linux" ]]; then
 	nc=$(grep -c ^processor /proc/cpuinfo)
-	echo "You have " $nc" cores."
+	echo "You have " "$nc" " cores."
 	echo "-------------------------------------------------"
-	echo "Changing the makeflags for "$nc" cores."
+	echo "Changing the makeflags for ""$nc"" cores."
 	TOTALMEM=$(cat /proc/meminfo | grep -i 'memtotal' | grep -o '[[:digit:]]*')
 	if [[  $TOTALMEM -gt 8000000 ]]; then
 		sed -i "s/#MAKEFLAGS=\"-j2\"/MAKEFLAGS=\"-j$nc\"/g" /etc/makepkg.conf
-		echo "Changing the compression settings for "$nc" cores."
+		echo "Changing the compression settings for ""$nc"" cores."
 		sed -i "s/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T $nc -z -)/g" /etc/makepkg.conf
 	fi
 
@@ -52,10 +52,10 @@ if [[ "$OS_NAME" = "linux" ]]; then
 	pacman -S --noconfirm reflector rsync
 	cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 
-	#Add parallel downloading
+	# Add parallel downloading
 	sed -i 's/^#Para/Para/' /etc/pacman.conf
 
-	#Enable multilib
+	# Enable multilib
 	sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 	pacman -Sy --noconfirm
 
@@ -69,15 +69,14 @@ if [[ "$OS_NAME" = "linux" ]]; then
 		'base-devel'
 	)
 
-	pacman -S --noconfirm --needed ${PKGS[@]}
+	pacman -S --noconfirm --needed "${PKGS[@]}"
 
 	PKGS_TO_REMOVE=(
 		'qt5-tools'
-		'firefox'
 		'yakuake'
 	)
 
-	pacman -Rs --noconfirm ${PKGS_TO_REMOVE[@]}
+	pacman -Rs --noconfirm "${PKGS_TO_REMOVE[@]}"
 fi
 
 exit

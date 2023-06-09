@@ -18,12 +18,12 @@ esac
 SCRIPT_DIRECTORY="$(dirname "$0")"
 
 if [ "$OS_NAME" = "linux" ]; then
-	sudo OS_NAME=$OS_NAME bash $SCRIPT_DIRECTORY/scripts/system.sh
+	sudo OS_NAME=$OS_NAME bash "$SCRIPT_DIRECTORY/scripts/system.sh"
 else
-	OS_NAME=$OS_NAME bash $SCRIPT_DIRECTORY/scripts/system.sh
+	OS_NAME=$OS_NAME bash "$SCRIPT_DIRECTORY/scripts/system.sh"
 fi
 
-OS_NAME=$OS_NAME bash $SCRIPT_DIRECTORY/scripts/user.sh
+OS_NAME=$OS_NAME bash "$SCRIPT_DIRECTORY/scripts/user.sh"
 
 echo -e "\nDone\n"
 exit

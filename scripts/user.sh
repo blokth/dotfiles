@@ -4,23 +4,25 @@ echo "Configuring user..."
 
 SCRIPT_DIRECTORY="$(dirname "$0")"
 
-mkdir -p $HOME/.config/nvim
+mkdir -p "$HOME/.config/nvim"
 
-ln -s "$SCRIPT_DIRECTORY/init.lua" "$HOME/.config/nvim/init.lua"
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+
+ln -s "$SCRIPT_DIRECTORY/lua/custom" "$HOME/.config/nvim/lua/custom"
 
 if [ "$OS_NAME" = "osx" ]; then
-	rm -rf $HOME/.zprofile
+	rm -rf "$HOME/.zprofile"
 	ln -s "$SCRIPT_DIRECTORY/.zprofile" "$HOME/.zprofile"
 fi
 
 if [ "$OS_NAME" = "linux" ]; then
 	echo "Installing yay"
 
-	mkdir -p $HOME/temp/yay
+	mkdir -p "$HOME/temp/yay"
 
-	git clone "https://aur.archlinux.org/yay.git" $HOME/temp/yay
+	git clone "https://aur.archlinux.org/yay.git" "$HOME/temp/yay"
 
-	cd $HOME/temp/yay
+	cd "$HOME/temp/yay" || exit
 
 	makepkg -si --noconfirm
 
@@ -29,7 +31,7 @@ if [ "$OS_NAME" = "linux" ]; then
 		'spotify'
 	)
 
-	yay -S --noconfirm --needed ${PKGS[@]}
+	yay -S --noconfirm --needed "${PKGS[@]}"
 
 	export PATH=$PATH:~/.local/bin
 fi
