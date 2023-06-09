@@ -14,7 +14,7 @@ end
 require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
-	use 'joshdick/onedark.vim'
+	use { "catppuccin/nvim", as = "catppuccin" }
 	use 'nvim-lualine/lualine.nvim'
 	use 'lukas-reineke/indent-blankline.nvim'
 	use 'nvim-treesitter/nvim-treesitter'
@@ -22,10 +22,13 @@ require('packer').startup(function(use)
 	use 'wellle/targets.vim'
 	use 'numToStr/Comment.nvim'
 	use 'tpope/vim-surround'
-	use 'kyazdani42/nvim-tree.lua'
+	use 'nvim-tree/nvim-tree.lua'
+	use 'nvim-tree/nvim-web-devicons'
+	use 'christoomey/vim-tmux-navigator'
 	use 'nvim-telescope/telescope.nvim'
 	use 'nvim-lua/plenary.nvim'
-	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+	use { 'nvim-telescope/telescope-fzf-native.nvim', run =
+	'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 	use 'akinsho/toggleterm.nvim'
 	use 'tpope/vim-fugitive'
 	use 'lewis6991/gitsigns.nvim'
@@ -40,6 +43,7 @@ require('packer').startup(function(use)
 	use 'rafamadriz/friendly-snippets'
 	use 'williamboman/mason.nvim'
 	use 'williamboman/mason-lspconfig.nvim'
+	use 'folke/which-key.nvim'
 
 	if install_plugins then
 		require('packer').sync()
@@ -50,12 +54,20 @@ if install_plugins then
 	return
 end
 
+-- require('kanagawa').load('dragon')
+require("catppuccin").setup({
+	flavour = "mocha"
+})
+
+vim.cmd.colorscheme("catppuccin")
+
+
 require('lualine').setup({
 	options = {
 		icons_enabled = false,
 		section_separators = '',
 		component_separators = '',
-		theme = 'onedark',
+		theme = 'catppuccin',
 		disabled_filetypes = {
 			statusline = { 'NvimTree' }
 		},
@@ -114,6 +126,8 @@ require('nvim-tree').setup({
 		bufmap('L', api.node.open.edit, 'Expand folder or go to file')
 		bufmap('H', api.node.navigate.parent_close, 'Close parent folder')
 		bufmap('gh', api.tree.toggle_hidden_filter, 'Toggle hidden files')
+		bufmap('<C-]>', api.tree.change_root_to_node, 'cd into folder')
+		bufmap('?', api.tree.toggle_help, 'Open help')
 	end
 })
 
@@ -138,3 +152,5 @@ require('gitsigns').setup({
 
 require('mason').setup()
 require('mason-lspconfig').setup()
+
+require('which-key').setup()

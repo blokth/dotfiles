@@ -9,7 +9,8 @@ lsp_defaults.capabilities = vim.tbl_deep_extend(
 
 lspconfig.rust_analyzer.setup({})
 lspconfig.lua_ls.setup({})
-
+lspconfig.clangd.setup({})
+lspconfig.texlab.setup({})
 
 vim.api.nvim_create_autocmd('LspAttach', {
 	desc = 'LSP actions',
@@ -105,7 +106,7 @@ cmp.setup({
 		['<C-p>'] = cmp.mapping.select_prev_item(select_opts),
 		['<C-n>'] = cmp.mapping.select_next_item(select_opts),
 
-		['<C-u>'] = cmp.mapping.scroll_docs( -4),
+		['<C-u>'] = cmp.mapping.scroll_docs(-4),
 		['<C-d>'] = cmp.mapping.scroll_docs(4),
 
 		['<C-e>'] = cmp.mapping.abort(),
@@ -118,8 +119,8 @@ cmp.setup({
 			end
 		end, { 'i', 's' }),
 		['<C-b>'] = cmp.mapping(function(fallback)
-			if luasnip.jumpable( -1) then
-				luasnip.jump( -1)
+			if luasnip.jumpable(-1) then
+				luasnip.jump(-1)
 			else
 				fallback()
 			end

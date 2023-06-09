@@ -1,8 +1,7 @@
 -- GLOBALS
-vim.g.mapleader = ' '
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.cmd.colorscheme('onedark')
+vim.g.mapleader = ' '
 
 -- OPTIONS
 vim.opt.mouse = 'a'
@@ -19,3 +18,4 @@ vim.opt.guifont = 'Fira Code:h16'
 vim.opt.termguicolors = true
 vim.opt.showmode = false
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+vim.opt.colorcolumn = "80"
