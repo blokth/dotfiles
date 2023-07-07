@@ -18,13 +18,19 @@ local plugins = {
 			ensure_installed = {
 				"stylua",
 				"clangd",
-        "shellcheck"
+				"shellcheck",
+				"black",
+				"pyright",
 			},
 		},
 	},
 	{
 		"christoomey/vim-tmux-navigator",
 		lazy = false,
+	},
+	{
+		"NvChad/nvterm",
+		enabled = false,
 	},
 }
 
