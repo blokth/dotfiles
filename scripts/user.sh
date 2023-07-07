@@ -11,8 +11,8 @@ git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 ln -s "$SCRIPT_DIRECTORY/lua/custom" "$HOME/.config/nvim/lua/custom"
 
 if [ "$OS_NAME" = "osx" ]; then
-	rm -rf "$HOME/.zprofile"
-	ln -s "$SCRIPT_DIRECTORY/.zprofile" "$HOME/.zprofile"
+	rm -rf "$HOME/.zshrc"
+	ln -s "$SCRIPT_DIRECTORY/.zshrc" "$HOME/.zhsrc"
 fi
 
 if [ "$OS_NAME" = "linux" ]; then
