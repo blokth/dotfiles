@@ -8,6 +8,7 @@ local sources = {
 	formatting.stylua,
 	formatting.shfmt,
 	formatting.black,
+	formatting.rustfmt,
 
 	lint.shellcheck,
 }

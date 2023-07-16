@@ -3,7 +3,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require("lspconfig")
 
-local servers = { "clangd", "pyright" }
+local servers = { "clangd", "pyright", "rust_analyzer" }
 
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({

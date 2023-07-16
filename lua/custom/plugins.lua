@@ -21,6 +21,8 @@ local plugins = {
 				"shellcheck",
 				"black",
 				"pyright",
+				"rust-analyzer",
+				"rustfmt",
 			},
 		},
 	},
