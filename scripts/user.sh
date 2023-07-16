@@ -4,11 +4,12 @@ echo "Configuring user..."
 
 SCRIPT_DIRECTORY="$(dirname "$0")"
 
-mkdir -p "$HOME/.config/nvim"
+mkdir -p "$HOME/.config/nvim/lua"
 
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 
-ln -s "$SCRIPT_DIRECTORY/lua/custom" "$HOME/.config/nvim/lua/custom"
+ln -s "$SCRIPT_DIRECTORY/init.lua" "$HOME/.config/nvim/init.lua"
+ln -s "$SCRIPT_DIRECTORY/lua" "$HOME/.config/nvim"
 
 if [ "$OS_NAME" = "osx" ]; then
 	rm -rf "$HOME/.zshrc"
