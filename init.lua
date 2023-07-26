@@ -1,9 +1,16 @@
-require("options")
+require("base")
+require("mappings")
 
 require("plugins")
 
-require("lsp")
+require("plugins/lsp")
+require("plugins/mason")
+require("plugins/nvim-tree")
+require("plugins/nvim-treesitter")
+require("plugins/lualine")
+require("plugins/cmp")
+require("plugins/telescope")
 
-require("keybindings")
-require("autocommands")
-require("user_commands")
+require("color")
+require("text")
+require("style")
