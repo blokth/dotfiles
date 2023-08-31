@@ -10,6 +10,7 @@ require("plugins/nvim-treesitter")
 require("plugins/lualine")
 require("plugins/cmp")
 require("plugins/telescope")
+require("plugins/null-ls")
 
 require("color")
 require("text")
