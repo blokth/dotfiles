@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o nounset
+set -eou pipefail
+
+CURRENT_DIR="$(dirname "$(realpath "$0")")"
+
+function main {
+    source "${CURRENT_DIR}"/tools/xdg/.vars
+
+    "${CURRENT_DIR}"/bin/tool install xdg
+    "${CURRENT_DIR}"/bin/tool install zsh
+    "${CURRENT_DIR}"/bin/tool install macos
+    "${CURRENT_DIR}"/bin/tool install configs
+    "${CURRENT_DIR}"/bin/tool install nvim
+    "${CURRENT_DIR}"/bin/tool install ssh
+    "${CURRENT_DIR}"/bin/tool install homebrew || true
+    "${CURRENT_DIR}"/bin/tool install nix
+    "${CURRENT_DIR}"/bin/tool install haskell
+    "${CURRENT_DIR}"/bin/tool install rust
+    "${CURRENT_DIR}"/bin/tool install utils
+}
+
+main

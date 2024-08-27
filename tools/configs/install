@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o nounset
+set -eou pipefail
+
+CURRENT_DIR="$(dirname "$(realpath "$0")")"
+
+function main {
+    mkdir -p "${XDG_CONFIG_HOME}"
+
+    # Top-level
+    ln -sf "${CURRENT_DIR}/.ghci" "${XDG_CONFIG_HOME}/ghci"
+
+    # Bat
+    mkdir -p "${XDG_CONFIG_HOME}/bat"
+    ln -sf "${CURRENT_DIR}/.bat" "${XDG_CONFIG_HOME}/bat/config"
+
+    # Cabal
+    mkdir -p "${XDG_CONFIG_HOME}/cabal"
+    ln -sf "${CURRENT_DIR}/.cabal.conf" "${XDG_CONFIG_HOME}/cabal/config"
+
+    # Git
+    mkdir -p "${XDG_CONFIG_HOME}/git"
+    ln -sf "${CURRENT_DIR}/.gitignore" "${XDG_CONFIG_HOME}/git/ignore"
+
+    ln -sf "${CURRENT_DIR}/.gitconfig" "${XDG_CONFIG_HOME}/git/config"
+
+    # Nix
+    mkdir -p "${XDG_CONFIG_HOME}/nix"
+    ln -sf "${CURRENT_DIR}/.nix.conf" "${XDG_CONFIG_HOME}/nix/nix.conf"
+
+    # Readline
+    mkdir -p "${XDG_CONFIG_HOME}/readline"
+    ln -sf "${CURRENT_DIR}/.inputrc" "${XDG_CONFIG_HOME}/readline/inputrc"
+
+    # Ripgrep
+    mkdir -p "${XDG_CONFIG_HOME}/ripgrep"
+    ln -sf "${CURRENT_DIR}/.ripgreprc" "${XDG_CONFIG_HOME}/ripgrep/config"
+
+    # Tmux
+    mkdir -p "${XDG_CONFIG_HOME}/tmux"
+    ln -sf "${CURRENT_DIR}/.tmux.conf" "${XDG_CONFIG_HOME}/tmux/tmux.conf"
+}
+
+main

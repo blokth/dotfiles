@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o errtrace
+set -o nounset
+set -eou pipefail
+
+CURRENT_DIR="$(dirname "$(realpath "$0")")"
+
+function main {
+    mkdir -p "${XDG_CONFIG_HOME}/nvim"
+
+    ln -sf "${CURRENT_DIR}/init.lua" "${XDG_CONFIG_HOME}/nvim/init.lua"
+    ln -sf "${CURRENT_DIR}/lua" "${XDG_CONFIG_HOME}/nvim"
+}
+
+main

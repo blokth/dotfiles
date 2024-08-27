@@ -1,0 +1,70 @@
+# Taps
+tap "homebrew/services"
+
+# Brews
+brew "bat"
+brew "tectonic"
+brew "coreutils"
+brew "ctop"
+brew "diff-so-fancy"
+brew "ncdu"
+brew "eza"
+brew "ffmpeg"
+brew "findutils"
+brew "fx"
+brew "fzf"
+brew "gh"
+brew "git-delta"
+brew "gnu-sed"
+brew "htop"
+brew "icu4c" # for ghcup
+brew "jq"
+brew "llvm@13" # for ghcup
+brew "mas"
+brew "neovim"
+brew "ripgrep"
+brew "rust-analyzer"
+brew "shellcheck"
+brew "wget"
+brew "tldr"
+brew "luarocks"
+brew "tmux"
+brew "tmux-mem-cpu-load"
+brew "yt-dlp"
+brew "zsh"
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
+
+# Casks
+cask "discord"
+cask "font-fira-code-nerd-font"
+cask "font-hack-nerd-font"
+cask "font-lilex-nerd-font"
+cask "font-roboto-mono-nerd-font"
+cask "font-space-mono-nerd-font"
+cask "iterm2"
+cask "slack"
+cask "spotify"
+cask "steam"
+cask "battle-net"
+cask "epic-games"
+cask "vlc"
+cask "zoom"
+cask "telegram"
+cask "aldente"
+cask "anki"
+cask "tomatobar"
+cask "protonvpn"
+cask "1password"
+
+
+# Mac App Store apps
+
+mas "1Password for Safari", id: 1569813296
+mas "Hush", id: 1544743900
+mas "Xcode", id: 497799835
+mas "Baking Soda - Tube Cleaner", id: 1601151613
+mas "Vinegar - Tube Cleaner", id: 1591303229
+mas "Kagi for Safari", id: 1622835804
+mas "AdGuard für Safari", id: 1440147259
