@@ -1,0 +1,10 @@
+\.git
+\.gitignore
+\.gitmodules
+\.pre-commit-config.yaml
+
+bin
+tools
+install
+
+^/README.*
