@@ -3,8 +3,6 @@
 \.gitmodules
 \.pre-commit-config.yaml
 
-bin
-tools
-install
+\.scripts
 
 ^/README.*

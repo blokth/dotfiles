@@ -36,10 +36,10 @@
 	untrackedcache = true
 
 [gpg]
-  format = ssh
+	format = ssh
 
 [gpg "ssh"]
-  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 
 [delta]
 	features = "unobtrusive-line-numbers decorations"
@@ -84,6 +84,6 @@
 	gpgSign = true
 
 [user]
-	email = "me@def4alt.com"
+	email = "andrii.olkhovych@pm.me"
 	name = "Andrii Olkhovych"
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF5WXSF7FL2yTpqQjsZlSkIkvs7KqYxovtj3qWP72ayH
