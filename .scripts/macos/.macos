@@ -83,7 +83,7 @@ defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Trackpad - Disable natural scrolling
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 # Dock - Automatically hide and show
 defaults write com.apple.dock autohide -bool true
@@ -178,102 +178,6 @@ defaults write com.apple.dashboard mcx-disabled -bool true
 
 # Printer - Automatically quit printer app once the print jobs complete
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
-
-# Safari - Enable debug menu
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
-
-# Safari - Enable the Develop menu and the Web Inspector
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
-
-# Safari - Add a context menu item for showing the Web Inspector in web views
-defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
-
-# Safari - Disable sending search queries to Apple
-defaults write com.apple.Safari UniversalSearchEnabled -bool false
-defaults write com.apple.Safari SuppressSearchSuggestions -bool true
-
-# Safari - Press Tab to highlight each item on a web page
-defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
-
-# Safari - Show the full URL in the address bar (note: this still hides the
-# scheme)
-defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
-
-# Safari - Set home page to `about:blank` for faster loading
-defaults write com.apple.Safari HomePage -string "about:blank"
-
-# Safari - Prevent Safari from opening ‘safe’ files automatically after
-# downloading
-defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
-
-# Safari - Hide the bookmarks bar by default
-defaults write com.apple.Safari ShowFavoritesBar -bool false
-
-# Safari - Hide Safari’s sidebar in Top Sites
-defaults write com.apple.Safari ShowSidebarInTopSites -bool false
-
-# Safari - Disable thumbnail cache for History and Top Sites
-defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
-
-# Safari - Make Safari’s search banners default to Contains instead of Starts
-# With
-defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
-
-# Safari - Remove useless icons from Safari’s bookmarks bar
-defaults write com.apple.Safari ProxiesInBookmarksBar "()"
-
-# Safari - Enable continuous spellchecking
-defaults write com.apple.Safari WebContinuousSpellCheckingEnabled -bool true
-
-# Safari - Disable auto-correct
-defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false
-
-# Safari - Warn about fraudulent websites
-defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
-
-# Safari - Disable Java
-defaults write com.apple.Safari WebKitJavaEnabled -bool false
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false
-
-# Safari - Block pop-up windows
-defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool false
-
-# Safari - Disable auto-playing video
-defaults write com.apple.Safari WebKitMediaPlaybackAllowsInline -bool false
-
-# Safari Enable “Do Not Track”
-defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
-
-# Safari - Update extensions automatically
-defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
-
-# Safari - Set DuckDuckGo as the search engine
-defaults write -g NSPreferredWebServices '{
-    NSWebServicesProviderWebSearch = {
-        NSDefaultDisplayName = DuckDuckGo;
-        NSProviderIdentifier = "com.duckduckgo";
-    };
-}'
-
-# Terminal - Only use UTF-8
-defaults write com.apple.terminal StringEncodings -array 4
-
-# Terminal - Disable audible and visual bells
-defaults write com.apple.terminal "Bell" -bool false
-defaults write com.apple.terminal "VisualBell" -bool false
-
-# Terminal - Enable Secure Keyboard Entry
-# See: https://security.stackexchange.com/a/47786/8918
-defaults write com.apple.terminal SecureKeyboardEntry -bool true
-
-# Terminal - Disable the annoying line marks
-defaults write com.apple.Terminal ShowLineMarks -int 0
-
-# iTerm2 - Don’t display the annoying prompt when quitting
-defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 # Time Machine - Prevent from prompting to use new hard drives as backup volume
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
