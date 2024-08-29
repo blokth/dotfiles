@@ -30,6 +30,11 @@ set ups symlinks for all the files with this singe command:
 stow .
 ```
 
+### Firefox Profile
+
+I use [Firefox Profilemaker](https://ffprofile.com/) to create a Firefox
+profile with reasonable defaults.
+
 ## Inspiration
 
 The inspiration for this setup came from the videos of
