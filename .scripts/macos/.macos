@@ -5,7 +5,7 @@
 osascript -e 'tell application "System Preferences" to quit'
 
 # Set WiFi DNS Servers
-networksetup -setdnsservers Wi-Fi "1.1.1.1" "1.0.0.1" "8.8.8.8"
+networksetup -setdnsservers Wi-Fi "1.1.1.1" "1.0.0.1"
 
 # Enable subpixel font rendering on non-Apple LCDs
 # Reference:
