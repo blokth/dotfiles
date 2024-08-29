@@ -3,13 +3,6 @@
 This repo contains config files (dotfiles) to provide consistent
 experience across devices.
 
-To manage these files I use [GNU Stow](https://www.gnu.org/software/stow/). It
-set ups symlinks for all dotfiles with this singe command:
-
-```sh
-stow .
-```
-
 ## Contents
 
 - zsh with customized [Oh My Posh](https://ohmyposh.dev/) theme and
@@ -19,6 +12,23 @@ stow .
 - Tmux with [tpm](https://github.com/tmux-plugins/tpm)
 - Brewfile
 - MacOS settings
+
+## Installation
+
+To install apps with Brewfile and set up various MacOS settings use:
+
+```sh
+cd .scripts
+chmod +x install
+./install
+```
+
+To manage dotfiles I use [GNU Stow](https://www.gnu.org/software/stow/). It
+set ups symlinks for all the files with this singe command:
+
+```sh
+stow .
+```
 
 ## Inspiration
 
