@@ -1,11 +1,9 @@
 # Taps
 tap "homebrew/services"
-tap "siderolabs/tap"
 
 # Brews
 brew "bat"
 brew "stow"
-brew "tectonic"
 brew "coreutils"
 brew "diff-so-fancy"
 brew "ncdu"
@@ -29,13 +27,12 @@ brew "zsh"
 brew "pre-commit"
 brew "oh-my-posh"
 brew "zoxide"
-brew "flux"
-brew "talosctl"
+brew "kubectl"
+brew "helmfile"
 
 # Casks
 cask "discord"
 cask "beeper"
-cask "firefox"
 cask "signal"
 cask "obsidian"
 cask "raycast"
@@ -50,11 +47,8 @@ cask "anki"
 cask "tomatobar"
 cask "protonvpn"
 cask "1password"
+cask "zen-browser"
 
 # Mac App Store apps
 
 mas "1Password for Safari", id: 1569813296
-mas "Hush", id: 1544743900
-mas "Xcode", id: 497799835
-mas "Baking Soda - Tube Cleaner", id: 1601151613
-mas "Vinegar - Tube Cleaner", id: 1591303229
