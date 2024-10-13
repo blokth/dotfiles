@@ -1,8 +1,0 @@
-\.git
-\.gitignore
-\.gitmodules
-\.pre-commit-config.yaml
-
-\.scripts
-
-^/README.*

@@ -1,7 +1,7 @@
 # Dotfiles
 
 This repo contains config files (dotfiles) to provide consistent
-experience across devices.
+experience across devices. Managed by Nix.
 
 ## Contents
 
@@ -10,30 +10,26 @@ experience across devices.
 - [Alacritty](https://alacritty.org/)
 - Neovim with [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
 - Tmux with [tpm](https://github.com/tmux-plugins/tpm)
-- Brewfile
 - MacOS settings
 
 ## Installation
 
-To install apps with Brewfile and set up various MacOS settings use:
+To install apps with Nix/Homebrew and set up various MacOS settings you need to
+install Nix first:
 
 ```sh
-cd .scripts
-chmod +x install
-./install
+sh <(curl -L https://nixos.org/nix/install)
 ```
 
-To manage dotfiles I use [GNU Stow](https://www.gnu.org/software/stow/). It
-set ups symlinks for all the files with this singe command:
+To setup my MacBook I use [nix-darwin](https://github.com/LnL7/nix-darwin). To
+install it run:
 
 ```sh
-stow .
+nix run --extra-experimental-features "nix-command flakes" nix-darwin -- switch --flake ./nix/darwin#book
 ```
 
-### Firefox Profile
-
-I use [Firefox Profilemaker](https://ffprofile.com/) to create a Firefox
-profile with reasonable defaults.
+To manage dotfiles I use [Home-manager](https://nixlang.wiki/nix/home-manager). It
+set ups symlinks for all the files and configs programs.
 
 ## Inspiration
 

@@ -1,5 +1,0 @@
-**/.DS_Store
-.config/tmux/plugins
-.config/zsh/.zsh_sessions
-.config/zsh/.zcompdump
-.config/nvim/lazy-lock.json

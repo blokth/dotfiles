@@ -52,8 +52,7 @@ mouse = "Middle"
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [shell]
-program = "/usr/local/bin/zsh"
-args = ["-l", "-c", "tmux attach || tmux "]
+program = "/run/current-system/sw/bin/zsh"
 
 [window]
 decorations = "full"
