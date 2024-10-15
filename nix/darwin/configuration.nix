@@ -53,8 +53,8 @@
       system.defaults = {
         dock.autohide = true;
         dock.persistent-apps = [
-          "${pkgs.alacritty}/Applications/Alacritty.app"
           "/Applications/Zen Browser.app"
+          "${pkgs.alacritty}/Applications/Alacritty.app"
           "${pkgs.obsidian}/Applications/Obsidian.app"
         ];
         finder.FXPreferredViewStyle = "clmv";
