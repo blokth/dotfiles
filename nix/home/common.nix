@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./modules/bat.nix
     ./modules/zsh.nix
     ./modules/nvim.nix
     ./modules/bat.nix
@@ -11,9 +12,8 @@
     ./modules/ripgrep.nix
     ./modules/tmux.nix
     ./modules/zoxide.nix
+    ./modules/vscode.nix
   ];
-
-  services.bat.enable = true;
 
   home.homeDirectory = "/Users/andrii";
   home.username = "andrii";
@@ -31,14 +31,20 @@
     htop
     direnv
     coreutils
+    ripgrep
     ncdu
+    cmake
     gnused
     wget
     pre-commit
+    tectonic
     kubectl
     gnupg
+    glew
     flux
     sops
+    gradle
+    zulu
 
     # Apps
     telegram-desktop

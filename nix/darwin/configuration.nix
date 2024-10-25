@@ -24,7 +24,13 @@
           "protonvpn"
           "zen-browser"
           "anki"
+          "docker"
+          "zulip"
+          "intellij-idea"
         ];
+        masApps = {
+          "WhatsApp" = 310633997;
+        };
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
         onActivation.upgrade = true;

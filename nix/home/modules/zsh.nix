@@ -51,6 +51,10 @@
       zstyle ':completion:*' menu no
       zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --color $realpath'
       zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza --color $realpath'
+
+      if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+        tmux attach-session -t default || tmux new-session -s default
+      fi
     '';
   };
 

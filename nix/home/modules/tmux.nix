@@ -15,6 +15,10 @@
 
       bind '"' split-window -v -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
+
+      set -as terminal-features ",alacritty*:RGB"
+
+      set -g default-command "${pkgs.zsh}/bin/zsh"
     '';
 
     plugins = with pkgs.tmuxPlugins; [
