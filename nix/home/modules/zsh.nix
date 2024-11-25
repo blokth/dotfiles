@@ -55,6 +55,8 @@
       if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
         tmux attach-session -t default || tmux new-session -s default
       fi
+
+      eval "$(/opt/homebrew/bin/brew shellenv)"
     '';
   };
 

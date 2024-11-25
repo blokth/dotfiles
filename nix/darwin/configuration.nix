@@ -27,6 +27,10 @@
           "docker"
           "zulip"
           "intellij-idea"
+          "utm"
+        ];
+        brews = [
+          "kanata"
         ];
         masApps = {
           "WhatsApp" = 310633997;
