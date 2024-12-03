@@ -11,26 +11,18 @@
 
           # Apps
           raycast
-          aldente
         ];
 
       homebrew = {
         enable = true;
         casks = [
-          "hammerspoon"
+          "anki"
           "1password"
-          "signal"
+          "hammerspoon"
           "tomatobar"
           "protonvpn"
           "zen-browser"
-          "anki"
-          "docker"
-          "zulip"
           "intellij-idea"
-          "utm"
-        ];
-        brews = [
-          "kanata"
         ];
         masApps = {
           "WhatsApp" = 310633997;

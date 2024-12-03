@@ -16,21 +16,26 @@
     gnused
     wget
     pre-commit
-    tectonic
     kubectl
-    python3
     gnupg
-    glew
-    flux
-    sops
-    gradle
-    zulu
+    # nodejs
+    # (python3.withPackages (python-pkgs: with python-pkgs; [
+    #   uvicorn
+    #   fastapi
+    #   pyjwt
+    #   sqlmodel
+    #   python-multipart
+    #   pytest
+    #   httpx
+    # ]))
 
     # Apps
-    telegram-desktop
     obsidian
     spotify
     zoom-us
+    signal-desktop
+    telegram-desktop
+    docker
 
     # Fonts
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
