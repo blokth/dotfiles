@@ -5,4 +5,4 @@
 local opt = vim.opt
 
 opt.mouse = ""
-opt.clipboard = "unnamed"
+opt.clipboard = ""

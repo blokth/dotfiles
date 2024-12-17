@@ -9,8 +9,6 @@
         with pkgs; [
           mkalias
 
-          # Apps
-          raycast
         ];
 
       homebrew = {
@@ -19,10 +17,10 @@
           "anki"
           "1password"
           "hammerspoon"
-          "tomatobar"
           "protonvpn"
           "zen-browser"
           "intellij-idea"
+          "raycast"
         ];
         masApps = {
           "WhatsApp" = 310633997;
