@@ -14,7 +14,7 @@
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#book
-    darwinConfigurations."book" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."dazhboh" = nix-darwin.lib.darwinSystem {
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
 
@@ -41,6 +41,6 @@
     };
 
     # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."book".pkgs;
+    darwinPackages = self.darwinConfigurations."dazhboh".pkgs;
   };
 }

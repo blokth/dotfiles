@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   home.homeDirectory = "/Users/andrii";
   home.username = "andrii";
@@ -12,24 +12,21 @@
     direnv
     coreutils
     ripgrep
-    cmake
     gnused
     wget
     pre-commit
     kubectl
     gnupg
-    # nodejs
-    # (python3.withPackages (python-pkgs: with python-pkgs; [
-    #   uvicorn
-    #   fastapi
-    #   pyjwt
-    #   sqlmodel
-    #   python-multipart
-    #   pytest
-    #   httpx
-    # ]))
+    sops
+    fluxcd
+    nodejs
+    luarocks
+    cargo
+    watch
+    yq
 
     # Apps
+    qbittorrent
     obsidian
     spotify
     zoom-us
@@ -38,26 +35,23 @@
     docker
 
     # Fonts
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    nerd-fonts.jetbrains-mono
   ];
 
   fonts.fontconfig.enable = true;
 
   imports = [
     ./modules/bat.nix
-    ./modules/zsh.nix
     ./modules/nvim.nix
-    ./modules/bat.nix
     ./modules/eza.nix
     ./modules/fzf.nix
     ./modules/git.nix
-    ./modules/oh-my-posh.nix
     ./modules/ripgrep.nix
     ./modules/tmux.nix
     ./modules/zoxide.nix
     ./modules/vscode.nix
-    ./modules/alacritty.nix
     ./modules/ssh.nix
+    ./modules/ghostty.nix
   ];
 
   home.stateVersion = "24.05";
