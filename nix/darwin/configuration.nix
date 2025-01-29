@@ -23,7 +23,6 @@
         casks = [
           "anki"
           "1password"
-          "hammerspoon"
           "protonvpn"
           "zen-browser"
           "intellij-idea"
@@ -31,6 +30,10 @@
           "tomatobar"
           "ghostty"
           "rectangle"
+          "cursor"
+          "figma"
+          "signal"
+          "zoom"
         ];
         masApps = {
           "WhatsApp" = 310633997;

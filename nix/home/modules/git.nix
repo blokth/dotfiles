@@ -2,7 +2,7 @@
   programs.git = {
     enable = true;
     userName = "Andrii Olkhovych";
-    userEmail = "hello@def4alt.com";
+    userEmail = "andrii.olkhovych@pm.me";
     signing.key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF5WXSF7FL2yTpqQjsZlSkIkvs7KqYxovtj3qWP72ayH";
     signing.signByDefault = true;
     delta = {

@@ -24,13 +24,22 @@
     cargo
     watch
     yq
+    (python3.withPackages (python-pkgs: with python-pkgs; [
+      fastapi
+      uvicorn
+      pyjwt
+      sqlmodel
+      python-dotenv
+      python-multipart
+      openai
+      pytest
+      httpx
+    ]))
 
     # Apps
     qbittorrent
     obsidian
     spotify
-    zoom-us
-    signal-desktop
     telegram-desktop
     docker
 
@@ -41,6 +50,7 @@
   fonts.fontconfig.enable = true;
 
   imports = [
+    ./modules/fish.nix
     ./modules/bat.nix
     ./modules/nvim.nix
     ./modules/eza.nix

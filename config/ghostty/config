@@ -4,5 +4,6 @@ keybind = global:control+a=toggle_quick_terminal
 font-family = "JetBrains Mono"
 mouse-hide-while-typing = true
 window-padding-x = 10
+window-padding-y = 4
 quick-terminal-autohide = true
 quick-terminal-position = center
