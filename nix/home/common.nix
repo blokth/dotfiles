@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.homeDirectory = "/Users/andrii";
   home.username = "andrii";
 
@@ -24,17 +23,18 @@
     cargo
     watch
     yq
-    (python3.withPackages (python-pkgs: with python-pkgs; [
-      fastapi
-      uvicorn
-      pyjwt
-      sqlmodel
-      python-dotenv
-      python-multipart
-      openai
-      pytest
-      httpx
-    ]))
+    (python3.withPackages (python-pkgs:
+      with python-pkgs; [
+        fastapi
+        uvicorn
+        pyjwt
+        sqlmodel
+        python-dotenv
+        python-multipart
+        openai
+        pytest
+        httpx
+      ]))
 
     # Apps
     qbittorrent
@@ -44,7 +44,6 @@
     docker
 
     # Fonts
-    nerd-fonts.jetbrains-mono
   ];
 
   fonts.fontconfig.enable = true;
@@ -64,5 +63,5 @@
     ./modules/ghostty.nix
   ];
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
 }

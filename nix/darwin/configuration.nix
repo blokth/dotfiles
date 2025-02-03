@@ -1,91 +1,154 @@
-{ pkgs, ... }: {
-      nixpkgs.config.allowUnfree = true;
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  nixpkgs.config.allowUnfree = true;
 
-      # List packages installed in system profile. To search by name, run:
-      # $ nix-env -qaP | grep wget
-      environment.systemPackages =
-        with pkgs; [
-          iina
-        ];
+  # List packages installed in system profile. To search by name, run:
+  # $ nix-env -qaP | grep wget
+  environment.systemPackages = with pkgs; [
+    iina
+  ];
 
-      programs.fish.enable = true;
-      programs.fish.vendor = {
-        config.enable = true;
-        functions.enable = true;
-        completions.enable = true;
-      };
+  # Necessary for using flakes on this system.
+  nix = {
+    package = pkgs.nix;
+    gc.automatic = true;
+    optimise.automatic = true;
+    settings.experimental-features = "nix-command flakes";
+  };
 
-      homebrew = {
-        enable = true;
-        brews = [
-          "zig"
-        ];
-        casks = [
-          "anki"
-          "1password"
-          "protonvpn"
-          "zen-browser"
-          "intellij-idea"
-          "raycast"
-          "tomatobar"
-          "ghostty"
-          "rectangle"
-          "cursor"
-          "figma"
-          "signal"
-          "zoom"
-        ];
-        masApps = {
-          "WhatsApp" = 310633997;
-        };
-        onActivation.cleanup = "zap";
-        onActivation.autoUpdate = true;
-        onActivation.upgrade = true;
-      };
+  # Enable alternative shell support in nix-darwin.
+  programs.fish.enable = true;
+  programs.fish.vendor = {
+    config.enable = true;
+    functions.enable = true;
+    completions.enable = true;
+  };
 
+  homebrew = {
+    enable = true;
+    brews = [
+      "zig"
+    ];
+    casks = [
+      "anki"
+      "1password"
+      "protonvpn"
+      "zen-browser"
+      "intellij-idea"
+      "raycast"
+      "tomatobar"
+      "ghostty"
+      "rectangle"
+      "cursor"
+      "figma"
+      "signal"
+      "zoom"
+    ];
+    masApps = {
+      "WhatsApp" = 310633997;
+    };
+    onActivation.cleanup = "zap";
+    onActivation.autoUpdate = true;
+    onActivation.upgrade = true;
+  };
 
-      system.defaults = {
-        dock.autohide = true;
-        dock.persistent-apps = [
-          "/Applications/Zen Browser.app"
-          "/Applications/Ghostty.app"
-          "${pkgs.obsidian}/Applications/Obsidian.app"
-        ];
-        finder.FXPreferredViewStyle = "clmv";
-        loginwindow.GuestEnabled = false;
-        NSGlobalDomain.AppleICUForce24HourTime = false;
-        NSGlobalDomain.AppleInterfaceStyle = "Dark";
-        NSGlobalDomain.ApplePressAndHoldEnabled = false;
-      };
+  system.keyboard.enableKeyMapping = true;
+  system.keyboard.remapCapsLockToControl = true;
 
-      # Auto upgrade nix package and the daemon service.
-      services.nix-daemon.enable = true;
+  security.pam.enableSudoTouchIdAuth = true;
 
-      nix = {
-        package = pkgs.nix;
-        gc.automatic = true;
-        optimise.automatic = true;
-        settings = {
-          experimental-features = [ "nix-command" "flakes"];
-        };
-      };
+  system.defaults = {
+    dock.autohide = true;
+    dock.persistent-apps = [
+      "/Applications/Zen Browser.app"
+      "/Applications/Ghostty.app"
+      "${pkgs.obsidian}/Applications/Obsidian.app"
+    ];
+    dock.largesize = 64;
+    dock.magnification = true;
+    dock.show-recents = false;
+    dock.static-only = true;
+    dock.tilesize = 16;
+    dock.wvous-br-corner = 1;
+    loginwindow.GuestEnabled = false;
+    finder.AppleShowAllFiles = true;
+    finder.AppleShowAllExtensions = true;
+    finder.CreateDesktop = true;
+    finder.FXEnableExtensionChangeWarning = false;
+    finder.FXPreferredViewStyle = "clmv";
+    finder.FXRemoveOldTrashItems = true;
+    finder.NewWindowTarget = "Home";
+    finder.ShowExternalHardDrivesOnDesktop = true;
+    finder.ShowMountedServersOnDesktop = true;
+    finder.ShowRemovableMediaOnDesktop = true;
+    finder.ShowStatusBar = true;
+    finder._FXShowPosixPathInTitle = true;
+    finder._FXSortFoldersFirst = true;
+    hitoolbox.AppleFnUsageType = "Change Input Source";
+    NSGlobalDomain.AppleICUForce24HourTime = true;
+    NSGlobalDomain.AppleInterfaceStyle = "Dark";
+    NSGlobalDomain.ApplePressAndHoldEnabled = false;
+    NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
+    NSGlobalDomain.NSAutomaticInlinePredictionEnabled = false;
+    NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
+    NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
+    NSGlobalDomain.NSAutomaticQuoteSubstitutionEnabled = false;
+    NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
+    NSGlobalDomain.NSDisableAutomaticTermination = true;
+    NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = false;
+    NSGlobalDomain.KeyRepeat = 100;
+    NSGlobalDomain.InitialKeyRepeat = 100;
+    NSGlobalDomain.AppleTemperatureUnit = "Celsius";
+    NSGlobalDomain.AppleShowScrollBars = "WhenScrolling";
+    NSGlobalDomain.AppleShowAllFiles = true;
+    NSGlobalDomain.AppleShowAllExtensions = true;
+    NSGlobalDomain.AppleScrollerPagingBehavior = true;
+    NSGlobalDomain.AppleMetricUnits = 1;
+    NSGlobalDomain.AppleMeasurementUnits = "Centimeters";
+    NSGlobalDomain.AppleFontSmoothing = 2;
+    LaunchServices.LSQuarantine = false;
+    ".GlobalPreferences"."com.apple.mouse.scaling" = -1.0;
+    NSGlobalDomain.NSWindowResizeTime = 0.1;
+    NSGlobalDomain._HIHideMenuBar = true;
+    NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
+    NSGlobalDomain."com.apple.swipescrolldirection" = false;
+    SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
+    controlcenter.BatteryShowPercentage = false;
+    controlcenter.Bluetooth = false;
+    controlcenter.Display = false;
+    controlcenter.FocusModes = false;
+    controlcenter.NowPlaying = false;
+    controlcenter.Sound = false;
+    menuExtraClock.Show24Hour = true;
+    menuExtraClock.ShowDate = 1;
+    menuExtraClock.ShowDayOfMonth = true;
+    menuExtraClock.ShowDayOfWeek = false;
+    menuExtraClock.ShowSeconds = true;
+    smb.ServerDescription = "alderbook";
+    trackpad.ActuationStrength = 0;
+    trackpad.Clicking = true;
 
-      users.users.andrii = {
-        name = "andrii";
-        home = "/Users/andrii";
-      };
+    # Enable the internal firewall to prevent unauthorised applications, programs and services from accepting incoming connections.
+    alf.globalstate = 1;
+  };
 
-      environment.shells = [ pkgs.fish ];
+  users.users.andrii = {
+    name = "andrii";
+    home = "/Users/andrii";
+  };
 
-      security.pam.enableSudoTouchIdAuth = true;
-      system.keyboard.enableKeyMapping = true;
-      system.keyboard.remapCapsLockToControl = true;
+  environment.shells = [pkgs.fish];
 
+  # Set Git commit hash for darwin-version.
+  system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
 
-      # Used for backwards compatibility, please read the changelog before changing.
-      # $ darwin-rebuild changelog
-      system.stateVersion = 5;
+  # Used for backwards compatibility, please read the changelog before changing.
+  # $ darwin-rebuild changelog
+  system.stateVersion = 5;
 
-      # The platform the configuration will be used on.
-      nixpkgs.hostPlatform = "aarch64-darwin";
-    }
+  # The platform the configuration will be used on.
+  nixpkgs.hostPlatform = "aarch64-darwin";
+}

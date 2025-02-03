@@ -8,9 +8,9 @@
     delta = {
       enable = true;
       options = {
-	features = "unobtrusive-line-numbers decorations";
-	syntax-theme = "Monokai Extended Bright";
-	whitespace-error-style = "22 reverse";
+        features = "unobtrusive-line-numbers decorations";
+        syntax-theme = "Monokai Extended Bright";
+        whitespace-error-style = "22 reverse";
 
         decorations = {
           commit-decoration-style = "bold yellow box ul";
