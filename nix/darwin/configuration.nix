@@ -39,7 +39,6 @@
       "zen-browser"
       "intellij-idea"
       "raycast"
-      "tomatobar"
       "ghostty"
       "rectangle"
       "cursor"
@@ -48,7 +47,7 @@
       "zoom"
     ];
     masApps = {
-      "WhatsApp" = 310633997;
+      "Flow" = 1423210932;
     };
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
@@ -99,8 +98,8 @@
     NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
     NSGlobalDomain.NSDisableAutomaticTermination = true;
     NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = false;
-    NSGlobalDomain.KeyRepeat = 100;
-    NSGlobalDomain.InitialKeyRepeat = 100;
+    NSGlobalDomain.KeyRepeat = 5;
+    NSGlobalDomain.InitialKeyRepeat = 10;
     NSGlobalDomain.AppleTemperatureUnit = "Celsius";
     NSGlobalDomain.AppleShowScrollBars = "WhenScrolling";
     NSGlobalDomain.AppleShowAllFiles = true;
@@ -110,7 +109,7 @@
     NSGlobalDomain.AppleMeasurementUnits = "Centimeters";
     NSGlobalDomain.AppleFontSmoothing = 2;
     LaunchServices.LSQuarantine = false;
-    ".GlobalPreferences"."com.apple.mouse.scaling" = -1.0;
+    ".GlobalPreferences"."com.apple.mouse.scaling" = 2.0;
     NSGlobalDomain.NSWindowResizeTime = 0.1;
     NSGlobalDomain._HIHideMenuBar = true;
     NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
