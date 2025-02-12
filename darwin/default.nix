@@ -1,17 +1,24 @@
 {
   pkgs,
   inputs,
+  platform,
+  hostname,
+  username,
+  lib,
   ...
 }: {
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     iina
   ];
 
-  # Necessary for using flakes on this system.
+  environment.variables = {
+    EDITOR = "nvim";
+    SYSTEMD_EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
+
   nix = {
     package = pkgs.nix;
     gc.automatic = true;
@@ -19,19 +26,22 @@
     settings.experimental-features = "nix-command flakes";
   };
 
-  # Enable alternative shell support in nix-darwin.
+  networking.hostName = hostname;
+
+  documentation.enable = true;
+  documentation.doc.enable = true;
+  documentation.info.enable = true;
+  documentation.man.enable = true;
+
+  programs.info.enable = true;
   programs.fish.enable = true;
   programs.fish.vendor = {
     config.enable = true;
     functions.enable = true;
     completions.enable = true;
   };
-
   homebrew = {
     enable = true;
-    brews = [
-      "zig"
-    ];
     casks = [
       "anki"
       "1password"
@@ -45,6 +55,10 @@
       "figma"
       "signal"
       "zoom"
+      "leader-key"
+      "obsidian"
+      "spotify"
+      "telegram"
     ];
     masApps = {
       "Flow" = 1423210932;
@@ -135,8 +149,8 @@
   };
 
   users.users.andrii = {
-    name = "andrii";
-    home = "/Users/andrii";
+    name = "${username}";
+    home = "/Users/${username}";
   };
 
   environment.shells = [pkgs.fish];
@@ -148,6 +162,5 @@
   # $ darwin-rebuild changelog
   system.stateVersion = 5;
 
-  # The platform the configuration will be used on.
-  nixpkgs.hostPlatform = "aarch64-darwin";
+  nixpkgs.hostPlatform = lib.mkDefault "${platform}";
 }
