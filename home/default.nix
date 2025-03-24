@@ -48,18 +48,9 @@ in {
       # Dig on steroid
       doggo
 
-      (python3.withPackages (python-pkgs:
-        with python-pkgs; [
-          fastapi
-          uvicorn
-          pyjwt
-          sqlmodel
-          python-dotenv
-          python-multipart
-          openai
-          pytest
-          httpx
-        ]))
+      uv
+
+      aider-chat
 
       # Apps
       qbittorrent

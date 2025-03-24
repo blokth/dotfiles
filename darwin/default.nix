@@ -34,14 +34,33 @@
   documentation.man.enable = true;
 
   programs.info.enable = true;
-  programs.fish.enable = true;
-  programs.fish.vendor = {
-    config.enable = true;
-    functions.enable = true;
-    completions.enable = true;
+  programs.fish = {
+    enable = true;
+    vendor = {
+      config.enable = true;
+      functions.enable = true;
+      completions.enable = true;
+    };
+    shellAliases = {
+      cat = "bat";
+      cd = "z";
+      find = "fd";
+      ls = "eza -1 --color=auto";
+      ll = "eza -1l --color=auto";
+    };
+
+    shellInit = ''
+      function fish_greeting
+      end
+
+      zoxide init fish | source
+    '';
   };
   homebrew = {
     enable = true;
+    brews = [
+      "python"
+    ];
     casks = [
       "anki"
       "1password"
@@ -49,7 +68,6 @@
       "zen-browser"
       "intellij-idea"
       "raycast"
-      "ghostty"
       "rectangle"
       "cursor"
       "figma"
@@ -59,6 +77,8 @@
       "obsidian"
       "spotify"
       "telegram"
+      "ghostty"
+      "google-chrome"
     ];
     masApps = {
       "Flow" = 1423210932;
@@ -71,7 +91,7 @@
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToControl = true;
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   system.defaults = {
     dock.autohide = true;
@@ -140,7 +160,6 @@
     menuExtraClock.ShowDayOfMonth = true;
     menuExtraClock.ShowDayOfWeek = false;
     menuExtraClock.ShowSeconds = true;
-    smb.ServerDescription = "alderbook";
     trackpad.ActuationStrength = 0;
     trackpad.Clicking = true;
 
