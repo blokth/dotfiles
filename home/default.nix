@@ -33,8 +33,7 @@ in {
       watch
       yq
       zig
-      utm
-      argocd
+      gradle
       # Command-line benchmarking tool
       hyperfine
       # A better df alternative
@@ -48,12 +47,38 @@ in {
       # Dig on steroid
       doggo
 
+      # IaaC
+      opentofu
+      google-cloud-sdk
+
       uv
 
       aider-chat
 
+      ocaml
+      opam
+
+      gh
+
       # Apps
       qbittorrent
+
+      # Deprecated glibc man pages
+      man-pages-posix
+
+      # GRA
+      bear
+
+      # WARR
+      ninja
+      minicom
+      gcc-arm-embedded
+      cmake
+
+      (python313.withPackages (ps:
+        with ps; [
+          pip
+        ]))
     ];
 
     sessionVariables = {

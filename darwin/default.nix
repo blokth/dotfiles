@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   platform,
   hostname,
   username,
@@ -17,6 +18,7 @@
     EDITOR = "nvim";
     SYSTEMD_EDITOR = "nvim";
     VISUAL = "nvim";
+    PATH = "${config.environment.systemPath}:/opt/ST/STM32CubeCLT_1.18.0/STM32CubeProgrammer/bin";
   };
 
   nix = {
@@ -26,7 +28,11 @@
     settings.experimental-features = "nix-command flakes";
   };
 
+  system.primaryUser = "andrii";
+
   networking.hostName = hostname;
+  networking.applicationFirewall.enable = true;
+  networking.applicationFirewall.blockAllIncoming = true;
 
   documentation.enable = true;
   documentation.doc.enable = true;
@@ -53,36 +59,37 @@
       function fish_greeting
       end
 
+      set SYSTEMC_HOME /opt/homebrew/opt/systemc
+      set GTEST_HOME /opt/homebrew/opt/googletest
+      set -gx PATH /opt/ST/STM32CubeCLT_1.18.0/STM32CubeProgrammer/bin $PATH
+
       zoxide init fish | source
     '';
   };
   homebrew = {
     enable = true;
     brews = [
-      "python"
+      "googletest"
+      "systemc"
     ];
     casks = [
       "anki"
       "1password"
       "protonvpn"
-      "zen-browser"
+      "zen"
       "intellij-idea"
       "raycast"
       "rectangle"
-      "cursor"
-      "figma"
       "signal"
       "zoom"
-      "leader-key"
-      "obsidian"
       "spotify"
       "telegram"
       "ghostty"
-      "google-chrome"
+      "docker"
+      "inkscape"
+      "calibre"
+      "mattermost"
     ];
-    masApps = {
-      "Flow" = 1423210932;
-    };
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
     onActivation.upgrade = true;
@@ -98,7 +105,6 @@
     dock.persistent-apps = [
       "/Applications/Zen Browser.app"
       "/Applications/Ghostty.app"
-      "${pkgs.obsidian}/Applications/Obsidian.app"
     ];
     dock.largesize = 64;
     dock.magnification = true;
@@ -162,9 +168,6 @@
     menuExtraClock.ShowSeconds = true;
     trackpad.ActuationStrength = 0;
     trackpad.Clicking = true;
-
-    # Enable the internal firewall to prevent unauthorised applications, programs and services from accepting incoming connections.
-    alf.globalstate = 1;
   };
 
   users.users.andrii = {
