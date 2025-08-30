@@ -37,9 +37,13 @@
       "[._]*.sw[a-p]"
       "[._]s[a-v][a-z]"
       "[._]sw[a-p]"
+      ".aider*"
       # System
       ".DS_Store"
       "**/.DS_Store"
+      # Env
+      ".env*"
+      "**/.env*"
     ];
     extraConfig = {
       init.defaultBranch = "main";

@@ -27,14 +27,8 @@
             enable = true;
             enableRosetta = false;
             user = "${username}";
-            mutableTaps = false;
+            mutableTaps = true;
             autoMigrate = true;
-
-            taps = {
-              "homebrew/core" = inputs.homebrew-core;
-              "homebrew/cask" = inputs.homebrew-cask;
-              "homebrew/bundle" = inputs.homebrew-bundle;
-            };
           };
         }
         inputs.home-manager.darwinModules.home-manager

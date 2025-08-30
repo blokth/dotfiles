@@ -31,8 +31,6 @@
   system.primaryUser = "andrii";
 
   networking.hostName = hostname;
-  networking.applicationFirewall.enable = true;
-  networking.applicationFirewall.blockAllIncoming = true;
 
   documentation.enable = true;
   documentation.doc.enable = true;
@@ -59,25 +57,18 @@
       function fish_greeting
       end
 
-      set SYSTEMC_HOME /opt/homebrew/opt/systemc
-      set GTEST_HOME /opt/homebrew/opt/googletest
-      set -gx PATH /opt/ST/STM32CubeCLT_1.18.0/STM32CubeProgrammer/bin $PATH
+      set FLUTTER_ROOT "/Users/andrii/Library/Application Support/io.flutterflow.prod.mac/flutter/bin"
+      set -gx PATH $HOME/.npm-global/bin $HOME/.pub-cache/bin "/Users/andrii/Library/Application Support/io.flutterflow.prod.mac/flutter/bin" /opt/ST/STM32CubeCLT_1.18.0/STM32CubeProgrammer/bin $PATH
 
       zoxide init fish | source
     '';
   };
   homebrew = {
     enable = true;
-    brews = [
-      "googletest"
-      "systemc"
-    ];
     casks = [
-      "anki"
+      "visual-studio-code"
       "1password"
-      "protonvpn"
       "zen"
-      "intellij-idea"
       "raycast"
       "rectangle"
       "signal"
@@ -85,10 +76,9 @@
       "spotify"
       "telegram"
       "ghostty"
-      "docker"
-      "inkscape"
+      "docker-desktop"
       "calibre"
-      "mattermost"
+      "flutterflow"
     ];
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;

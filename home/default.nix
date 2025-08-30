@@ -17,68 +17,29 @@ in {
       else "/";
 
     packages = with pkgs; [
-      htop
       direnv
       coreutils
       ripgrep
       gnused
       wget
       pre-commit
-      kubectl
       gnupg
       sops
       nodejs
       luarocks
-      cargo
-      watch
-      yq
-      zig
-      gradle
-      # Command-line benchmarking tool
-      hyperfine
-      # A better df alternative
-      duf
+      ncdu
       # A simple, fast and user-friendly alternative to find
       fd
-      # Simplified man pages with practical examples
-      tldr
       # A smarter cd
       zoxide
-      # Dig on steroid
-      doggo
-
-      # IaaC
-      opentofu
-      google-cloud-sdk
 
       uv
-
-      aider-chat
-
-      ocaml
-      opam
-
       gh
 
-      # Apps
-      qbittorrent
-
-      # Deprecated glibc man pages
-      man-pages-posix
-
-      # GRA
-      bear
-
-      # WARR
-      ninja
-      minicom
-      gcc-arm-embedded
-      cmake
-
-      (python313.withPackages (ps:
-        with ps; [
-          pip
-        ]))
+      # SkiGaudi
+      firebase-tools
+      google-cloud-sdk
+      claude-code
     ];
 
     sessionVariables = {
@@ -106,7 +67,6 @@ in {
     ./modules/ripgrep.nix
     ./modules/tmux.nix
     ./modules/zoxide.nix
-    ./modules/vscode.nix
     ./modules/ssh.nix
     ./modules/ghostty.nix
   ];
